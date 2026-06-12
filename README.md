@@ -1,3 +1,6 @@
+Name : Syed Daniyal Hussain
+Roll no: 2K23/CSM/134
+
 # AI System Specification — Smart Traffic Signal Controller
 
 **Course:** Introduction to Artificial Intelligence  
