@@ -1,0 +1,52 @@
+{
+  "system_name": "Smart Traffic Signal Controller",
+  "peas": {
+    "performance_measures": [
+      "Average waiting time reduction per vehicle",
+      "Emergency vehicle clearance time",
+      "Accident rate reduction percentage",
+      "Traffic flow smoothness score"
+    ],
+    "environment": "Multi-lane urban roads with complex intersections, changing weather conditions, pedestrians and cyclists",
+    "actuators": [
+      "Traffic signal lights (Red/Yellow/Green control)",
+      "Digital display boards for alerts and diversions",
+      "Audio alert system for visually impaired pedestrians"
+    ],
+    "sensors": [
+      "High-resolution RGB cameras with high FPS",
+      "WIM underground road sensors for vehicle weight and speed",
+      "Acoustic sensors for detecting emergency sirens",
+      "Arduino-based pedestrian detection at zebra crossings",
+      "Weather sensors for rain and fog detection",
+      "Computer vision systems for road condition monitoring"
+    ]
+  },
+  "environment_classification": {
+    "observability": {
+      "choice": "Partially Observable",
+      "justification": "Agent can only perceive roads and intersections where its sensors are physically installed"
+    },
+    "agents": {
+      "choice": "Multi-agent",
+      "justification": "A large city like Karachi requires multiple coordinated signal controllers across many intersections"
+    },
+    "determinism": {
+      "choice": "Stochastic",
+      "justification": "Unpredictable driver behavior and mechanical failures can change outcomes despite correct AI decisions"
+    },
+    "sequence": {
+      "choice": "Sequential",
+      "justification": "Each signal decision affects traffic flow for the next 5 to 10 minutes, so past actions impact future states"
+    },
+    "dynamics": {
+      "choice": "Dynamic",
+      "justification": "Traffic, pedestrians and weather all change continuously while the agent is still processing its decision"
+    },
+    "continuity": {
+      "choice": "Continuous",
+      "justification": "Vehicle speeds and traffic density vary constantly with no fixed discrete steps"
+    }
+  },
+  "utility_function": "U = 0.7 * Emergency_Clearance + 0.3 * Traffic_Flow_Efficiency"
+}
